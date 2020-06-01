@@ -15,9 +15,10 @@ class App extends Component {
   uiConfig={
     signInFlow:"popup",
     signInoptions:[
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.GithubAuthProvider.PROVIDER_ID
+     
     ],
     callbacks:{
       signInSuccess:() => false
@@ -41,7 +42,7 @@ class App extends Component {
 
         {this.state.isLoggedIn ? (
           <div>
-          <div className=" mt-2 col-4 offset-4 border rounded border-rounded shadow-lg ">
+          <div className=" mt-2 col-lg-4  offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 border rounded border-rounded shadow-lg ">
          
 
           <h2 className="text-center text-primary mt-5"> Welcome, {firebase.auth().currentUser.displayName}</h2>
