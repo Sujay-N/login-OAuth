@@ -1,6 +1,6 @@
-#Login 
+# Login 
 
-##Firebase Authentication 
+## Firebase Authentication 
 >Google
 >Facebook
 >Github
