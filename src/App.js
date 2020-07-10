@@ -9,7 +9,13 @@ firebase.initializeApp({
   authDomain : "login-oauth-f124f.firebaseapp.com"
   })
 
+ 
+
+
 class App extends Component {
+
+  
+
   state={isLoggedIn: false}
 
   uiConfig={
@@ -32,9 +38,31 @@ class App extends Component {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isLoggedIn:!!user})
       console.log("user",user)
+
+      console.log(user.email)
+      let userEmail = user.email;
+      window.parent.document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify(
+        {
+            event_code: 'ym-client-event', data: JSON.stringify({
+                event: {
+                    code: "data",
+                    data: {
+                        file_data: userEmail
+                    }
+                }
+            })
+        }), '*');
+
+     
     })
   }
+
+
+
+  
+
   render(){
+    
 
   
   return (
