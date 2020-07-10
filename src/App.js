@@ -41,17 +41,28 @@ class App extends Component {
 
       console.log(user.email)
       let userEmail = user.email;
-      window.parent.document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify(
-        {
-            event_code: 'ym-client-event', data: JSON.stringify({
-                event: {
-                    code: "data",
-                    data: {
-                        file_data: userEmail
-                    }
+      // window.parent.document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify(
+      //   {
+      //       event_code: 'ym-client-event', data: JSON.stringify({
+      //           event: {
+      //               code: "data",
+      //               data: {
+      //                   file_data: userEmail
+      //               }
+      //           }
+      //       })
+      //   }), '*');
+
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'ym-client-event', data: JSON.stringify({
+            event: {
+                code: "data",
+                data: {
+                    email : userEmail
                 }
-            })
-        }), '*');
+            }
+        })
+    }), '*');
 
      
     })
