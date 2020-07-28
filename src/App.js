@@ -39,8 +39,9 @@ class App extends Component {
       this.setState({isLoggedIn:!!user})
       console.log("user",user)
 
-      console.log(user.email)
+      console.log(user.email,user.displayName)
       let userEmail = user.email;
+      let userName = user.displayName;
       // window.parent.document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify(
       //   {
       //       event_code: 'ym-client-event', data: JSON.stringify({
@@ -58,7 +59,8 @@ class App extends Component {
             event: {
                 code: "data",
                 data: {
-                    email : userEmail
+                    email : userEmail,
+                    name : userName
                 }
             }
         })
@@ -83,8 +85,10 @@ class App extends Component {
           <div className="overflow-auto">
        
           <div className="d-flex justify-content-center"> 
-          <h5 className="mt-2 text-primary"> Welcome, {firebase.auth().currentUser.displayName}</h5>
+          <h5 className="mt-3 text-info">Login Successful</h5>
           </div>
+          <h5 className="m-5"> </h5>
+          {/* <h5 className="mt-5 text-center text-info"> Welcome, {firebase.auth().currentUser.displayName}</h5> */}
 
           <div className="d-flex justify-content-center"> 
           <img className="mt-5 rounded rounded-circle" src={firebase.auth().currentUser.photoURL}  alt="DP" style={{width:"200px"}} />
