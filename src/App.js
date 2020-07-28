@@ -83,7 +83,7 @@ class App extends Component {
           <div className="overflow-auto">
        
           <div className="d-flex justify-content-center"> 
-          <h5 className=" text-primary"> Welcome, {firebase.auth().currentUser.displayName}</h5>
+          <h5 className="mt-2 text-primary"> Welcome, {firebase.auth().currentUser.displayName}</h5>
           </div>
 
           <div className="d-flex justify-content-center"> 
