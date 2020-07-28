@@ -81,25 +81,23 @@ class App extends Component {
 
         {this.state.isLoggedIn ? (
           <div className="overflow-auto">
-          {/* <div className=" mt-2 col-lg-4  offset-lg-4 col-md-3 offset-md-0 col-sm-4 offset-sm-0  border rounded border-rounded shadow-lg "> */}
+       
           <div className="d-flex justify-content-center"> 
-          <h2 className=" text-primary mt-5"> Welcome, {firebase.auth().currentUser.displayName}</h2>
+          <h5 className=" text-primary"> Welcome, {firebase.auth().currentUser.displayName}</h5>
           </div>
+
           <div className="d-flex justify-content-center"> 
-          <img className="rounded rounded-circle" src={firebase.auth().currentUser.photoURL}  alt="DP" style={{width:"200px"}} />
-      
+          <img className="mt-5 rounded rounded-circle" src={firebase.auth().currentUser.photoURL}  alt="DP" style={{width:"200px"}} />
           </div>
+
           <div className="d-flex justify-content-center"> 
           <p className="text-secondary mt-3"> {firebase.auth().currentUser.email} </p>
-
           </div>
 
-          
-             
           <div className="d-flex justify-content-center"> 
           <button className="btn btn-lg my-5 btn-outline-info" onClick={()=>firebase.auth().signOut() } >Sign Out</button>
             </div>
-               {/* </div> */}
+            
           </div>
         ) : (
           <StyledFirebaseAuth
